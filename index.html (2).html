@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="走進淡水紅毛城，透過插畫、時間軸與互動探索認識近四百年的歷史。">
+<title>紅毛城散步日記｜淡水歷史文化</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<style>
+:root{--cream:#fbf7ee;--paper:#fffdf8;--brick:#b85e4b;--brick-dark:#8f4035;--sage:#71836b;--sage-light:#dfe6d7;--ink:#343b34;--muted:#7e8176;--yellow:#f0c96b;--line:#e9e1d2;--shadow:0 18px 50px #59452b12}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC",sans-serif;line-height:1.8;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:#fbf7eee8;backdrop-filter:blur(12px);border-bottom:1px solid #e9e1d288}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.06em}.brand-mark{width:37px;height:37px;border-radius:13px;background:var(--brick);color:white;display:grid;place-items:center;font-size:20px;transform:rotate(-5deg)}.nav-links{display:flex;gap:28px;font-size:13px;color:#65685e}.nav-links a{transition:color .2s}.nav-links a:hover{color:var(--brick)}.menu-btn{display:none;border:0;background:var(--sage-light);border-radius:12px;padding:8px 12px}
+.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:70px 0 80px;position:relative}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);font-weight:800;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:24px;height:2px;background:var(--brick)}h1{font-size:clamp(42px,5.5vw,72px);line-height:1.22;letter-spacing:-.055em;margin:20px 0 22px;font-weight:800}h1 em{font-style:normal;color:var(--brick);position:relative;white-space:nowrap}h1 em:after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:9px;background:#f0c96b7a;border-radius:100%;z-index:-1;transform:rotate(-2deg)}.hero-copy p{max-width:460px;color:#72766c;font-size:15px}.hero-actions{display:flex;gap:12px;align-items:center;margin-top:30px;flex-wrap:wrap}.btn{border:0;cursor:pointer;border-radius:999px;padding:13px 22px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:10px;transition:transform .25s,box-shadow .25s}.btn:hover{transform:translateY(-4px);box-shadow:0 12px 24px #57412c18}.btn-primary{background:var(--brick);color:#fff}.btn-ghost{border:1px solid #d9d2c4;background:transparent}.hero-note{font-size:11px;color:#a1a092;margin-top:22px}.hero-art{position:relative;min-height:440px;display:grid;place-items:center}.art-blob{position:absolute;width:min(430px,95%);aspect-ratio:1;border-radius:46% 54% 54% 46%/48% 43% 57% 52%;background:#e7eadb;transform:rotate(-7deg)}.sun{position:absolute;width:94px;height:94px;background:var(--yellow);border-radius:50%;right:7%;top:7%;box-shadow:0 0 0 14px #f0c96b20}.cloud{position:absolute;width:85px;height:26px;background:#fffdf8;border-radius:30px;left:2%;top:22%;box-shadow:22px -9px 0 -2px #fffdf8,44px 0 0 -5px #fffdf8}.castle-svg{width:100%;max-width:480px;position:relative;z-index:2;filter:drop-shadow(0 16px 12px #5b45351b)}.art-label{position:absolute;z-index:3;bottom:25px;right:1%;background:var(--paper);padding:13px 18px;border-radius:18px;box-shadow:var(--shadow);font-size:12px;transform:rotate(3deg)}.art-label strong{display:block;font-size:15px}.tiny-star{position:absolute;color:var(--brick);font-size:27px}.star-one{top:20%;right:19%}.star-two{bottom:18%;left:5%;font-size:19px}
+.ticker{background:var(--sage);color:white;padding:13px 0;overflow:hidden;white-space:nowrap;font-size:12px;letter-spacing:.14em}.ticker-track{display:inline-flex;gap:32px;min-width:max-content}.section{padding:100px 0}.section-head{max-width:650px;margin-bottom:42px}.kicker{font-size:11px;color:var(--brick);font-weight:800;letter-spacing:.16em}.section h2{font-size:clamp(30px,4vw,46px);line-height:1.35;letter-spacing:-.04em;margin:10px 0 14px}.section-head p{color:var(--muted);font-size:14px;margin:0}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.intro-card{background:var(--paper);padding:35px;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative}.intro-card .stamp{width:58px;height:58px;background:#f7e6d9;color:var(--brick);border-radius:50%;display:grid;place-items:center;font-size:26px;margin-bottom:20px}.intro-card h3{font-size:22px;margin:0 0 12px}.intro-card p{font-size:14px;color:var(--muted);margin:0}.fact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.fact{background:#f3efe5;border-radius:16px;padding:15px 12px;text-align:center}.fact strong{display:block;color:var(--brick);font-size:23px}.fact span{font-size:11px;color:var(--muted)}.sketch-wrap{background:#e9eee2;border-radius:30px;min-height:350px;display:grid;place-items:center;position:relative;overflow:hidden}.sketch-wrap:before,.sketch-wrap:after{content:"";position:absolute;border:1px solid #9aaa8b77;border-radius:50%;width:290px;height:290px}.sketch-wrap:after{width:360px;height:360px}.sketch-wrap svg{width:80%;max-width:360px;z-index:1}.sketch-caption{position:absolute;bottom:17px;right:20px;font-size:11px;color:#697960;z-index:2}
+.history{background:#f2eee3}.timeline{position:relative;max-width:850px;margin:50px auto 0}.timeline:before{content:"";position:absolute;left:145px;top:10px;bottom:10px;width:2px;background:#d8cbb9}.era{display:grid;grid-template-columns:115px 30px 1fr;gap:16px;position:relative;margin:0 0 27px;align-items:start}.era-year{text-align:right;padding-top:22px;color:var(--brick);font-size:14px;font-weight:800}.era-dot{width:15px;height:15px;border-radius:50%;background:var(--yellow);border:4px solid #f2eee3;box-shadow:0 0 0 2px var(--brick);margin:27px auto 0;z-index:1}.era-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:23px 26px;transition:transform .25s,box-shadow .25s}.era-card:hover{transform:translateX(7px);box-shadow:var(--shadow)}.era-card .tag{display:inline-block;background:var(--sage-light);color:#52654d;border-radius:99px;padding:3px 10px;font-size:10px;font-weight:700;margin-bottom:8px}.era-card h3{font-size:18px;margin:0 0 6px}.era-card p{margin:0;color:var(--muted);font-size:13px}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.arch-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .3s,box-shadow .3s}.arch-card:hover{transform:translateY(-8px) rotate(-.5deg);box-shadow:var(--shadow)}.arch-visual{height:190px;background:#e9eee2;display:grid;place-items:center;position:relative;overflow:hidden}.arch-visual:nth-child(2){background:#f6e7d9}.arch-visual svg{width:70%;max-height:165px;transition:transform .4s}.arch-card:hover .arch-visual svg{transform:scale(1.06) rotate(2deg)}.arch-content{padding:22px}.arch-content small{color:var(--brick);font-size:10px;letter-spacing:.12em;font-weight:800}.arch-content h3{margin:6px 0;font-size:18px}.arch-content p{margin:0;color:var(--muted);font-size:13px}
+.fun{background:#e5ebdc}.fun-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}.fun-list{display:grid;gap:13px}.fact-card{background:#fffdf8b8;border:1px solid #d8e0d0;border-radius:18px;padding:17px 19px;display:flex;gap:15px;align-items:flex-start;transition:background .2s,transform .2s}.fact-card:hover{background:#fffdf8;transform:translateX(5px)}.fact-icon{width:42px;height:42px;border-radius:14px;background:#f4e4d4;display:grid;place-items:center;font-size:20px;flex-shrink:0}.fact-card h3{font-size:15px;margin:0 0 3px}.fact-card p{font-size:12px;color:var(--muted);margin:0}.fun-doodle{position:relative;min-height:330px;display:grid;place-items:center}.fun-doodle .circle{width:270px;height:270px;border-radius:50%;background:#f6f1e5;display:grid;place-items:center}.fun-doodle svg{width:85%;max-width:270px}.sticker{position:absolute;background:#fffdf8;border-radius:16px;padding:11px 15px;font-size:12px;box-shadow:var(--shadow);transform:rotate(-7deg);top:14%;left:0}.sticker2{top:auto;bottom:14%;left:auto;right:0;transform:rotate(5deg)}
+.visit{padding-bottom:110px}.visit-card{background:var(--brick);color:white;border-radius:30px;padding:48px;display:grid;grid-template-columns:1fr .8fr;gap:30px;align-items:center;position:relative;overflow:hidden}.visit-card:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ffffff30;border-radius:50%;right:-60px;top:-100px;box-shadow:0 0 0 30px #ffffff0b,0 0 0 60px #ffffff0b}.visit-card h2{font-size:clamp(28px,4vw,42px);line-height:1.3;margin:10px 0 14px}.visit-card p{color:#f4ddd5;font-size:13px;max-width:470px}.visit-info{position:relative;z-index:1;background:#fffdf81a;border:1px solid #ffffff3b;border-radius:20px;padding:23px}.visit-info h3{font-size:14px;margin:0 0 12px}.visit-info p{margin:7px 0;color:white;font-size:12px}.visit-info a{display:inline-block;margin-top:8px;text-decoration:underline;text-underline-offset:4px;font-size:12px}.footer{padding:25px 0;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.reveal{opacity:0;transform:translateY(24px)}.floaty{animation:float 4s ease-in-out infinite}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}.reduced-motion *{animation:none!important;transition:none!important}
+@media(max-width:760px){.nav-inner{height:66px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:65px;left:0;right:0;background:var(--cream);padding:20px 24px 25px;flex-direction:column;gap:15px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.hero{grid-template-columns:1fr;padding:55px 0 45px;gap:5px}.hero-copy{position:relative;z-index:3}.hero-art{min-height:340px}.art-blob{width:330px}.castle-svg{max-width:360px}.sun{width:70px;height:70px}.section{padding:70px 0}.intro-grid,.fun-grid,.visit-card{grid-template-columns:1fr;gap:28px}.sketch-wrap{min-height:280px}.fact-row{gap:7px}.fact{padding:12px 5px}.fact strong{font-size:19px}.timeline:before{left:12px}.era{grid-template-columns:25px 1fr;gap:13px}.era-year{grid-column:2;text-align:left;padding:0 0 0 0;font-size:12px}.era-dot{grid-column:1;grid-row:1/3;margin:7px auto 0}.era-card{grid-column:2;grid-row:2;padding:20px}.arch-grid{grid-template-columns:1fr}.arch-visual{height:210px}.fun-doodle{min-height:280px}.visit-card{padding:30px 24px}.visit-card:after{right:-160px}.footer-inner{display:block}.footer-inner span{display:block;margin:5px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="紅毛城散步日記首頁"><span class="brand-mark">城</span><span>紅毛城散步日記</span></a>
+    <button class="menu-btn" aria-label="開啟選單" aria-expanded="false">☰</button>
+    <div class="nav-links"><a href="#story">歷史時間線</a><a href="#architecture">建築散步</a><a href="#fun">冷知識</a><a href="#visit">參觀資訊</a></div>
+  </div>
+</nav>
+<main id="top">
+<section class="wrap hero">
+  <div class="hero-copy">
+    <div class="eyebrow">TAMSUI · CULTURE WALK</div>
+    <h1>走進紅磚城，<br>收藏一段<em>時光。</em></h1>
+    <p>在淡水山坡上，有一座看過不同旗幟升起的古老城堡。跟著小小的探索旅程，一起認識紅毛城的歷史、建築與故事吧！</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#story">開始歷史散步 <span>↘</span></a><a class="btn btn-ghost" href="#architecture">看看城堡細節</a></div>
+    <div class="hero-note">✳ 一座城堡・近四百年的故事・慢慢探索</div>
+  </div>
+  <div class="hero-art">
+    <div class="art-blob"></div><div class="sun floaty"></div><div class="cloud"></div><span class="tiny-star star-one">✳</span><span class="tiny-star star-two">✦</span>
+    <svg class="castle-svg" viewBox="0 0 500 420" role="img" aria-label="紅毛城與英國領事官邸的可愛風格插畫">
+      <ellipse cx="252" cy="365" rx="195" ry="20" fill="#aab79b" opacity=".45"/>
+      <path d="M48 350 Q110 315 175 338 T310 332 T465 347 L465 375 L48 375Z" fill="#b8c7a9"/>
+      <path d="M84 344 L84 195 L118 195 L118 160 L145 160 L145 195 L177 195 L177 344Z" fill="#b85e4b" stroke="#8f4035" stroke-width="4"/>
+      <path d="M73 198 L130 157 L188 198Z" fill="#d77b61" stroke="#8f4035" stroke-width="4"/>
+      <path d="M98 222 H111 V241 H98Z M145 222 H158 V241 H145Z M98 268 H111 V287 H98Z M145 268 H158 V287 H145Z" fill="#f5d6a7"/>
+      <path d="M190 345 V230 Q190 214 206 214 H382 Q398 214 398 230 V345Z" fill="#d88768" stroke="#8f4035" stroke-width="4"/>
+      <path d="M179 219 L293 177 L410 219Z" fill="#b85e4b" stroke="#8f4035" stroke-width="4"/>
+      <path d="M208 240 H234 V277 H208Z M251 240 H277 V277 H251Z M294 240 H320 V277 H294Z M337 240 H363 V277 H337Z" fill="#f6e7d4" stroke="#8f4035" stroke-width="2"/>
+      <path d="M200 290 H388 V306 H200Z" fill="#f2c9a8"/>
+      <path d="M218 306 V345 M249 306 V345 M280 306 V345 M311 306 V345 M342 306 V345 M373 306 V345" stroke="#8f4035" stroke-width="3"/>
+      <path d="M225 345 V312 Q225 299 238 299 Q251 299 251 312 V345Z" fill="#8f4035"/>
+      <path d="M220 299 Q238 274 256 299" fill="#f2c9a8" stroke="#8f4035" stroke-width="3"/>
+      <path d="M125 157 V124 H146 V157" fill="#d77b61" stroke="#8f4035" stroke-width="3"/><path d="M121 124 L136 108 L151 124Z" fill="#8f4035"/>
+      <path d="M135 109 V83" stroke="#71836b" stroke-width="3"/><path d="M136 85 L163 93 L136 101Z" fill="#71836b"/>
+      <path d="M414 344 Q421 314 444 310 Q459 320 458 344" fill="#71836b"/><circle cx="443" cy="301" r="21" fill="#a6b69a"/><circle cx="423" cy="316" r="16" fill="#b8c7a9"/><circle cx="460" cy="318" r="18" fill="#c5d0b8"/>
+      <path d="M66 347 Q57 332 68 318 Q81 328 78 347 M53 348 Q43 337 48 326" fill="#71836b"/>
+      <g fill="#f4d99c"><circle cx="187" cy="193" r="4"/><circle cx="397" cy="208" r="4"/><circle cx="177" cy="328" r="3"/></g>
+    </svg>
+    <div class="art-label">淡水・台灣<strong>紅毛城 Fort San Domingo</strong></div>
+  </div>
+</section>
+<div class="ticker"><div class="ticker-track"><span>✳ HISTORY IS EVERYWHERE</span><span>✳ 慢慢走・仔細看・聽故事</span><span>✳ TAMSUI CULTURE WALK</span><span>✳ HISTORY IS EVERYWHERE</span><span>✳ 慢慢走・仔細看・聽故事</span></div></div>
+<section class="section wrap" id="intro">
+  <div class="intro-grid">
+    <div class="section-head reveal"><div class="kicker">01 / HELLO, FORT</div><h2>它不只是一座城堡，<br>也是歷史留下的日記。</h2><p>紅毛城位於新北市淡水，曾經歷西班牙、荷蘭、清朝與英國等不同時期。紅色城牆記錄著港口貿易、軍事防禦與外交往來，也讓我們看見淡水與世界相遇的痕跡。</p></div>
+    <div class="intro-card reveal"><div class="stamp">✿</div><h3>為什麼叫「紅毛城」？</h3><p>荷蘭人曾在這裡建造城堡。當時人們以「紅毛」稱呼部分紅髮的荷蘭人，因此這座城堡逐漸有了「紅毛城」這個名字。</p><div class="fact-row"><div class="fact"><strong>1629</strong><span>西班牙建堡</span></div><div class="fact"><strong>1644</strong><span>荷蘭重建</span></div><div class="fact"><strong>1980</strong><span>收回管理</span></div></div></div>
+  </div>
+</section>
+<section class="section history" id="story">
+  <div class="wrap"><div class="section-head reveal"><div class="kicker">02 / A WALK THROUGH TIME</div><h2>沿著時間線，<br>翻開城堡的舊故事。</h2><p>往下滑動，看看紅毛城如何從防禦據點，成為今天保存歷史的文化景點。</p></div>
+  <div class="timeline">
+    <article class="era reveal"><div class="era-year">1629</div><div class="era-dot"></div><div class="era-card"><span class="tag">西班牙時期</span><h3>山坡上，築起最初的據點</h3><p>西班牙人在淡水建立據點，作為軍事、政治與傳教活動的基地。這是紅毛城故事的早期篇章。</p></div></article>
+    <article class="era reveal"><div class="era-year">1642–1644</div><div class="era-dot"></div><div class="era-card"><span class="tag">荷蘭時期</span><h3>城堡換了主人，也換了模樣</h3><p>荷蘭人擊退西班牙勢力後，在原址一帶重建城堡，並稱為「安東尼堡」。紅毛城的名字也與這段歷史有關。</p></div></article>
+    <article class="era reveal"><div class="era-year">1860s</div><div class="era-dot"></div><div class="era-card"><span class="tag">開港通商</span><h3>淡水港，與世界往來更頻繁</h3><p>淡水開港通商後，外國商館與領事機構陸續出現，這片山坡也成為不同文化交會的地方。</p></div></article>
+    <article class="era reveal"><div class="era-year">1867</div><div class="era-dot"></div><div class="era-card"><span class="tag">英國領事館時期</span><h3>紅磚官邸，留下另一種風景</h3><p>英國租用紅毛城作為領事館，並在旁邊興建領事官邸。拱廊、紅磚與西式建築，成為園區裡醒目的景色。</p></div></article>
+    <article class="era reveal"><div class="era-year">1980 至今</div><div class="era-dot"></div><div class="era-card"><span class="tag">保存與再發現</span><h3>從歷史現場，變成大家的文化教室</h3><p>紅毛城交由臺灣方面接收管理，經過修復與保存，成為認識淡水歷史、建築與文化交流的重要場所。</p></div></article>
+  </div></div>
+</section>
+<section class="section wrap" id="architecture">
+  <div class="section-head reveal"><div class="kicker">03 / DETAILS TO DISCOVER</div><h2>建築散步：<br>把細節收進口袋裡。</h2><p>滑鼠移上卡片，讓小插圖動起來。每個角落，都藏著不同時代留下的線索。</p></div>
+  <div class="arch-grid">
+    <article class="arch-card reveal"><div class="arch-visual"><svg viewBox="0 0 220 160" aria-label="紅色城堡插圖"><path d="M35 140V55H57V35H77V55H94V140Z" fill="#b85e4b" stroke="#8f4035" stroke-width="3"/><path d="M27 57L65 25L102 57Z" fill="#d88768" stroke="#8f4035" stroke-width="3"/><path d="M48 75H60V91H48ZM73 75H85V91H73ZM48 105H60V121H48ZM73 105H85V121H73Z" fill="#f7e3bd"/><path d="M111 140V82H187V140Z" fill="#d88768" stroke="#8f4035" stroke-width="3"/><path d="M103 83L149 55L195 83Z" fill="#b85e4b" stroke="#8f4035" stroke-width="3"/><path d="M125 94H138V111H125ZM158 94H171V111H158Z" fill="#f7e3bd"/><path d="M20 142H200" stroke="#71836b" stroke-width="5" stroke-linecap="round"/></svg></div><div class="arch-content"><small>01 — FORT</small><h3>厚實的紅磚城堡</h3><p>城堡具有防禦用途，厚牆與有限的開口，反映早期軍事建築重視安全的設計。</p></div></article>
+    <article class="arch-card reveal"><div class="arch-visual" style="background:#f6e7d9"><svg viewBox="0 0 220 160" aria-label="英國領事官邸拱廊插圖"><path d="M26 137V54H194V137Z" fill="#d88768" stroke="#8f4035" stroke-width="3"/><path d="M17 55L110 20L203 55Z" fill="#b85e4b" stroke="#8f4035" stroke-width="3"/><path d="M41 67H179V77H41Z" fill="#f4d4b6"/><path d="M48 137V103A17 17 0 0 1 82 103V137 M93 137V103A17 17 0 0 1 127 103V137 M138 137V103A17 17 0 0 1 172 103V137" fill="#f8e7d3" stroke="#8f4035" stroke-width="3"/><path d="M41 86H179" stroke="#8f4035" stroke-width="3"/><path d="M30 143H190" stroke="#71836b" stroke-width="5" stroke-linecap="round"/></svg></div><div class="arch-content"><small>02 — CONSULATE</small><h3>優雅的紅磚拱廊</h3><p>英國領事官邸以紅磚與拱廊形成鮮明特色，展現十九世紀殖民地建築融合多種文化元素的樣貌。</p></div></article>
+    <article class="arch-card reveal"><div class="arch-visual" style="background:#e6ebdf"><svg viewBox="0 0 220 160" aria-label="淡水河與山景插圖"><circle cx="166" cy="34" r="19" fill="#f0c96b"/><path d="M0 103L45 52L76 88L120 39L178 103Z" fill="#a5b69a"/><path d="M0 112L61 75L95 105L147 69L220 113Z" fill="#71836b"/><path d="M0 114Q35 104 68 116T137 116T220 112V150H0Z" fill="#94b8bd"/><path d="M0 128Q35 118 68 130T137 130T220 126" fill="none" stroke="#d9eee7" stroke-width="4"/><path d="M0 141Q35 131 68 143T137 143T220 139" fill="none" stroke="#d9eee7" stroke-width="3"/><path d="M22 114V88L35 78L48 88V114Z" fill="#d88768" stroke="#8f4035" stroke-width="2"/></svg></div><div class="arch-content"><small>03 — LANDSCAPE</small><h3>眺望淡水河與觀音山</h3><p>紅毛城所在位置可以遠望淡水河與觀音山，歷史建築也因此與河港景觀緊密相連。</p></div></article>
+  </div>
+</section>
+<section class="section fun" id="fun">
+  <div class="wrap fun-grid">
+    <div class="fun-doodle reveal"><div class="circle"><svg viewBox="0 0 260 260" role="img" aria-label="可愛的城堡小導覽員插圖"><path d="M58 210V90H202V210Z" fill="#d88768" stroke="#8f4035" stroke-width="4"/><path d="M48 91L130 39L212 91Z" fill="#b85e4b" stroke="#8f4035" stroke-width="4"/><path d="M81 112H99V139H81ZM111 112H129V139H111ZM141 112H159V139H141ZM171 112H189V139H171Z" fill="#f8e7d3"/><path d="M109 210V171A21 21 0 0 1 151 171V210Z" fill="#8f4035"/><circle cx="130" cy="165" r="28" fill="#f4d6b5"/><circle cx="120" cy="163" r="3" fill="#343b34"/><circle cx="140" cy="163" r="3" fill="#343b34"/><path d="M122 175Q130 182 138 175" fill="none" stroke="#8f4035" stroke-width="3" stroke-linecap="round"/><path d="M100 145L130 126L160 145Z" fill="#71836b"/><circle cx="130" cy="128" r="5" fill="#f0c96b"/></svg></div><div class="sticker">🧭 歷史探險中！</div><div class="sticker sticker2">把故事帶回家 ♡</div></div>
+    <div><div class="section-head reveal"><div class="kicker">04 / LITTLE DISCOVERIES</div><h2>紅毛城的<br>三個小小冷知識。</h2><p>不只是看建築，也可以用這些線索重新認識它。</p></div>
+      <div class="fun-list">
+        <article class="fact-card reveal"><div class="fact-icon">🧱</div><div><h3>名字來自一個外號</h3><p>「紅毛城」的稱呼與當時人們對紅髮荷蘭人的稱呼有關。</p></div></article>
+        <article class="fact-card reveal"><div class="fact-icon">🏛️</div><div><h3>園區裡不只一棟建築</h3><p>除了主堡，也能看見前英國領事官邸與清代南門等歷史遺構。</p></div></article>
+        <article class="fact-card reveal"><div class="fact-icon">🌅</div><div><h3>歷史與風景一起收藏</h3><p>站在園區眺望淡水河，能感受紅毛城與港口發展之間的關係。</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section wrap visit" id="visit"><div class="visit-card reveal"><div><div class="kicker" style="color:#f5d99a">05 / PLAN YOUR VISIT</div><h2>故事讀到這裡，<br>換你親自去散步。</h2><p>走進真正的紅毛城，看看磚牆、拱廊與淡水河景。出發前記得再次確認開放時間與休館公告。</p><a class="btn" style="background:#fffdf8;color:var(--brick);margin-top:12px" href="https://www.tshs.ntpc.gov.tw/" target="_blank" rel="noopener">前往淡水古蹟博物館 ↗</a></div><div class="visit-info"><h3>📍 參觀小抄</h3><p><strong>地址｜</strong>新北市淡水區中正路 28 巷 1 號</p><p><strong>平日｜</strong>09:30–17:00</p><p><strong>週末與國定假日｜</strong>09:30–18:00</p><p><strong>提醒｜</strong>每月第一個星期一等日期可能休館，請以官方公告為準。</p><a href="https://newtaipei.travel/en/attractions/detail/111530" target="_blank" rel="noopener">查看景點與交通資訊 ↗</a></div></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><span>© 紅毛城散步日記｜淡水歷史文化主題網站</span><span>歷史資訊參考：新北市立淡水古蹟博物館、觀光署與新北市觀光旅遊網</span></div></footer>
+<script>
+document.documentElement.classList.add('js-ready');
+const menuBtn=document.querySelector('.menu-btn');
+const navLinks=document.querySelector('.nav-links');
+menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰';});
+navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+
+// Anime.js：首頁插畫、標題與小裝飾的入場動畫
+if(window.anime){
+  anime.timeline({easing:'easeOutExpo'})
+    .add({targets:'.hero-copy .eyebrow',opacity:[0,1],translateY:[15,0],duration:650})
+    .add({targets:'h1',opacity:[0,1],translateY:[25,0],duration:800},'-=400')
+    .add({targets:'.hero-copy p,.hero-actions,.hero-note',opacity:[0,1],translateY:[15,0],duration:650,delay:anime.stagger(100)},'-=450')
+    .add({targets:'.castle-svg',opacity:[0,1],translateY:[35,0],rotate:['-3deg','0deg'],duration:1000},'-=850');
+  anime({targets:'.sun',scale:[.8,1],opacity:[0,1],duration:1200,easing:'easeOutElastic(1, .6)',delay:700});
+  anime({targets:'.tiny-star',rotate:['-25deg','25deg'],direction:'alternate',loop:true,duration:1700,easing:'easeInOutSine',delay:anime.stagger(300)});
+  anime({targets:'.ticker-track',translateX:[0,-260],duration:9000,easing:'linear',loop:true});
+}
+
+// IntersectionObserver 控制滾動敘事；支援不支援 Anime.js 時的基本顯示
+const revealItems=document.querySelectorAll('.reveal');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if('IntersectionObserver' in window && !reduceMotion){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        if(window.anime){anime({targets:entry.target,opacity:[0,1],translateY:[24,0],duration:750,easing:'easeOutCubic'});}
+        else{entry.target.style.opacity='1';entry.target.style.transform='none';}
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.14});
+  revealItems.forEach(item=>observer.observe(item));
+}else{revealItems.forEach(item=>{item.style.opacity='1';item.style.transform='none';});}
+</script>
+</body>
+</html>
